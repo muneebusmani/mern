@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
-function App() {
+const App  = () => {
+    const date = new Date();
+    let time = "00:00:00";
+    const getTime = (time:string) =>{
+        time   = date.toLocaleTimeString();
+        return time;
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+    <>
+        <div className={"w-full mx-auto px-20 py-20 text-5xl h-screen text-center"}>
+            <h1>{time||""}</h1>
+            <br/>
+            <input type={"button"} className={"bg-cyan-400 rounded-full px-5 py-2.5 "} onClick={() => getTime(time)} value={"Get Current Time"} />
+            
+        </div>
+    </>
+  )
+};
 export default App;
